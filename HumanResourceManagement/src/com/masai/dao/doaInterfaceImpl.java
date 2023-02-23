@@ -206,6 +206,204 @@ public class doaInterfaceImpl implements daoInterface{
 		return employees;
 	}
 
+	@Override
+	public Employee viewEmployee(String empName, String password) {
+		// TODO Auto-generated method stub
+		Employee employee = null;
+		try(Connection connection = DBUtil.provideConnection()) {
+			PreparedStatement statement = connection.prepareStatement("select e.empId, e.empName, e.password, e.deptId, d.deptname from employee e inner join department d on e.deptId = d.deptId where e.password  = ? and e.empName =?");
+			statement.setString(1, password);
+			statement.setString(2, empName);
+			ResultSet rSet = statement.executeQuery();
+            while(rSet.next())
+				
+			{
+				int empId = rSet.getInt("empId");
+				String empName1 = rSet.getString("empName");
+				String password1 = rSet.getString("password");
+				int deptId = rSet.getInt("deptId");
+				String deptName = rSet.getString("deptname");
+				employee = new Employee(empId, deptId, deptName, empName, password);
+				
+				
+				
+			}
+		} catch (SQLException e) {
+			// TODO: handle exception
+			e.getMessage();
+		}
+		return employee;
+	}
+
+	@Override
+	public String updateEmployeePass(String empName, String password, String newPassword) {
+		// TODO Auto-generated method stub
+		String meString = "Password not changed ";
+		try (Connection connection = DBUtil.provideConnection()){
+			PreparedStatement statement = connection.prepareStatement("select * from employee where empName = ? and password =?");
+			statement.setString(1, empName);
+			statement.setString(2, password);
+			ResultSet rSet = statement.executeQuery();
+            while(rSet.next())
+				
+			{
+            	PreparedStatement statement1 = connection.prepareStatement("update employee set password =? where password = ?");
+            	statement1.setString(1, newPassword);
+    			statement1.setString(2, password);
+    			int x = statement1.executeUpdate();
+    		    if(x>0)
+    		    {
+    		    	meString = "Password changed successfully";
+    		    } 
+			}
+		} catch (SQLException e) {
+			// TODO: handle exception\
+			e.printStackTrace();
+		}
+		return meString;
+	}
+
+	@Override
+	public String updateEmployeeName(String empName, String password, String newName) {
+		// TODO Auto-generated method stub
+		String meString ="";
+//				"Name not updated yet ";
+		try (Connection connection = DBUtil.provideConnection()){
+			PreparedStatement statement = connection.prepareStatement("select * from employee where empName = ? and password =?");
+			statement.setString(1, empName);
+			statement.setString(2, password);
+			ResultSet rSet = statement.executeQuery();
+            if(rSet.next())	
+			{
+            	PreparedStatement statement1 = connection.prepareStatement("update employee set empName =? where password = ?");
+            	statement1.setString(1, newName);
+    			statement1.setString(2, password);
+    			int x = statement1.executeUpdate();
+    		    if(x>0)
+    		    {
+    		    	meString = "Name updated successfully";
+    		    }
+    		    else {
+    		    	meString = "Name not updated";
+    		    }
+			}
+		} catch (SQLException e) {
+			// TODO: handle exception\
+			meString = e.getMessage();
+		}
+		return meString;
+	}
+
+	@Override
+	public String leaveApply(String password, int leaveDay) {
+		// TODO Auto-generated method stub
+		String msgString = "leave not applied yet";
+		try(Connection connection = DBUtil.provideConnection()){
+			PreparedStatement statement = connection.prepareStatement("select * from employee where password =?");
+        	statement.setString(1, password);
+        	ResultSet rSet = statement.executeQuery();
+            if(rSet.next())	
+			{
+            	PreparedStatement statement1 = connection.prepareStatement("insert into leave_application (leaveDay, empId) values (?,?)");
+            	statement1.setInt(1, leaveDay);
+    			statement1.setInt(2, rSet.getInt("empId"));
+    			int x = statement1.executeUpdate();
+    		    if(x>0)
+    		    {
+    		    	msgString = "leave applied successfully";
+    		    }
+    		    else {
+    		    	msgString = "not eligible for leave";
+    		    }
+			}
+            else {
+            	msgString = "credential not matched";
+			}
+		} catch (SQLException e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+		return msgString;
+	}
+
+	@Override
+	public EmployeeLeave getLeaveStatusById(String password) {
+		// TODO Auto-generated method stub
+		EmployeeLeave employeeLeave = null;
+		try(Connection connection = DBUtil.provideConnection()) {
+			PreparedStatement statement = connection.prepareStatement("select * from employee where password = ?");
+        	statement.setString(1, password);
+        	ResultSet rSet = statement.executeQuery();
+            if(rSet.next())	
+			{
+            	PreparedStatement statement1 = connection.prepareStatement("select e.empId, e.empName, l.leaveDay, l.status from employee e inner join leave_application l on e.empId = l.empId where e.empId  = ?");
+            	
+    			statement1.setInt(1, rSet.getInt("empId"));
+    			ResultSet rSet1 = statement1.executeQuery();
+    			while(rSet1.next())
+    			{
+    				int empId = rSet1.getInt("empId");
+    				String empName1 = rSet1.getString("empName");
+    				
+    				String leaveDay = rSet1.getString("leaveDay");
+    				String status = rSet1.getString("status");
+    				employeeLeave = new EmployeeLeave(empId, empName1, leaveDay, status);
+    				
+    				
+    			}
+    			
+			}
+		} catch (SQLException e) {
+			// TODO: handle exception
+			e.getMessage();
+		}
+		return employeeLeave;
+	}
+
+	@Override
+	public boolean validateAdmin(String adminName, String password) {
+		// TODO Auto-generated method stub
+		boolean value = false;
+		try(Connection connection = DBUtil.provideConnection()) {
+			PreparedStatement statement = connection.prepareStatement("select * from admin where adminName = ? and password=?");
+        	statement.setString(1, adminName);
+        	statement.setString(2, password);
+        	ResultSet rSet = statement.executeQuery();
+        	
+        	 if(rSet.next()!=false)	
+ 			{
+             	value =true;
+     		}	
+ 			
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.getMessage();
+		}
+		return value;
+	}
+
+	@Override
+	public boolean validateEmployee(String empName, String password) {
+		// TODO Auto-generated method stub
+		boolean value = false;
+		try(Connection connection = DBUtil.provideConnection()) {
+			PreparedStatement statement = connection.prepareStatement("select * from employee where empName = ? and password=?");
+        	statement.setString(1, empName);
+        	statement.setString(2, password);
+        	ResultSet rSet = statement.executeQuery();
+        	
+        	 if(rSet.next()!=false)	
+ 			{
+             	value =true;
+     		}	
+ 			
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.getMessage();
+		}
+		return value;
+	}
+
 
 	
 

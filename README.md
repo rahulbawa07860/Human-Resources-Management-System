@@ -1,6 +1,24 @@
 <h1>WorkforceWise (HRMS)</h1>
-<p>WorkforceWise is a Human Resources Management System (HRMS) application designed to streamline and automate various HR functions for organizations of all sizes. With WorkforceWise, businesses can manage their employee data such as hire employee, assign department, grant leave and keep track on work status of employee in one centralized platform.</p>
+<p>WorkforceWise is a Human Resources Management System (HRMS) application designed to streamline and automate various HR functions for organizations of all sizes. With WorkforceWise, businesses can manage their employee data such as hire employee, assign department, grant leave and keep track on work status of employee in one centralized platform</p>
 <p>WorkforceWise also features employee self-service tools, allowing employees to manage their personal information, request time off, change credentials and as such more. With customizable workflows and integrations with popular third-party applications, WorkforceWise can be tailored to meet the unique needs of any organization.</p>
+<h1>features</h1>
+<h4>Role of Admin:</h4>
+<p> - Admin can add new Departments</p>
+<p> - Admin can view and update the Departments</p>
+<p> - Admin can register new Employees and give them their password</p>
+<p> - Admin can also transfer them to other departments</p>
+<p> - Admin can grant or deny employee leave request</p>
+<h4>Role of Employee:</h4>
+<p> - Employee can view and update his profile</p>
+<p> - Employee can also change his password</p>
+<p> - Employee can also request for leaves</p>
+
+
+
+ 
+
+
+
 
 <h1>Tech Stack and Tools Used:-</h1>
 <p>- JAVA </p>
@@ -73,4 +91,5 @@
 
 <hr />
 
+<h2> Thanks for taking the time to read this project file - your interest and attention are greatly appreciated! &#x1F60A; </h2>
 

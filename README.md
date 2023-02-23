@@ -1,6 +1,6 @@
 <h1>WorkforceWise (HRMS)</h1>
-<p>WorkforceWise is a Human Resources Management System (HRMS) application designed to streamline and automate various HR functions for organizations of all sizes. With WorkforceWise, businesses can manage their employee data such as hire employee, assign department, grant leave and keep track on work status of employee in one centralized platform</p>
-<p>WorkforceWise also features employee self-service tools, allowing employees to manage their personal information, request time off, change credentials and as such more. With customizable workflows and integrations with popular third-party applications, WorkforceWise can be tailored to meet the unique needs of any organization.</p>
+<p>WorkforceWise is a Human Resources Management System (HRMS) application designed to streamline and automate various HR functions for organizations of all sizes. With WorkforceWise, businesses can manage their employee data such as hire employee, assign department, grant leave and keep track of work status of employee in one centralized platform</p>
+<p>WorkforceWise also features employee self-service tools, allowing employees to manage their personal information, request time off, change credentials and as such as more. With customizable workflows and integrations with popular third-party applications, WorkforceWise can be tailored to meet the unique needs of any organization.</p>
 <h1>features</h1>
 <h4>Role of Admin:</h4>
 <p> - Admin can add new Departments</p>

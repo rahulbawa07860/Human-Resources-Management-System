@@ -12,9 +12,11 @@ import CustomColor.ConsoleColors;
 
 public class EmployeeUseCase {
 	public static final daoInterface doa = new doaInterfaceImpl();
+	public static boolean  flag  = true;
 public static void main(String[] args) {
 	Scanner scanner = new Scanner(System.in);
-	
+	while(flag=true)
+	{
 	System.out.println(ConsoleColors.PURPLE_BOLD_BRIGHT +"-------------------------------------------|");
 	System.out.println(ConsoleColors.GREEN_BOLD+"|| Please Choose Your Action :-            |");
 	System.out.println(ConsoleColors.GREEN_BOLD+"-------------------------------------------|");
@@ -54,7 +56,7 @@ public static void main(String[] args) {
 	}
 	
 }
-
+}
 
 
 public static void viewEmployee(Scanner scanner)
@@ -72,10 +74,22 @@ public static void viewEmployee(Scanner scanner)
 	    System.out.println();
 	}
 	else {
-		System.out.println(ConsoleColors.WHITE_BACKGROUND+"--------------------------------------");
+		System.out.println(----------------------------------------------------------------------------------------");
 		System.out.println(ConsoleColors.PURPLE_BOLD_BRIGHT +ConsoleColors.BLACK_BOLD+employee);
+	    System.out.println();
 	}
-	
+	System.out.println(ConsoleColors.YELLOW_BACKGROUND_BRIGHT +ConsoleColors.RED_BOLD +"Enter [ 0 ] to return Main Menu     |");
+	  System.out.println(ConsoleColors.YELLOW_BACKGROUND_BRIGHT +ConsoleColors.RED_BOLD +"Enter [ 1 ] to Exit                 |");
+	  System.out.println(ConsoleColors.WHITE_BACKGROUND +"|-----------------------------------|");	
+	int input = scanner.nextInt();
+	if(input == 0) {
+		flag = true;
+	}else {
+		flag = false;
+		System.out.println(ConsoleColors.CYAN_BOLD_BRIGHT+ConsoleColors.GREEN_BOLD+"---------Logging Out-----------");
+		System.out.println(ConsoleColors.CYAN_BOLD_BRIGHT+ConsoleColors.GREEN_BOLD+"<-----Application Closed------>");
+		System.out.println("  ");
+	}
 }
 public static void updatePassword(Scanner scanner)
 {
@@ -87,7 +101,19 @@ public static void updatePassword(Scanner scanner)
 	String newPassword = scanner.next();
 	String message = doa.updateEmployeePass(empNameString, password, newPassword);
 	System.out.println(message);
-	
+    System.out.println();
+	System.out.println(ConsoleColors.YELLOW_BACKGROUND_BRIGHT +ConsoleColors.RED_BOLD +"Enter [ 0 ] to return Main Menu     |");
+	  System.out.println(ConsoleColors.YELLOW_BACKGROUND_BRIGHT +ConsoleColors.RED_BOLD +"Enter [ 1 ] to Exit                 |");
+	  System.out.println(ConsoleColors.WHITE_BACKGROUND +"|-----------------------------------|");	
+	int input = scanner.nextInt();
+	if(input == 0) {
+		flag = true;
+	}else {
+		flag = false;
+		System.out.println(ConsoleColors.CYAN_BOLD_BRIGHT+ConsoleColors.GREEN_BOLD+"---------Logging Out-----------");
+		System.out.println(ConsoleColors.CYAN_BOLD_BRIGHT+ConsoleColors.GREEN_BOLD+"<-----Application Closed------>");
+		System.out.println("  ");
+	}
 }
 
 public static void updateEmpName(Scanner scanner)
@@ -100,7 +126,19 @@ public static void updateEmpName(Scanner scanner)
 	String newName = scanner.next();
 	String message = doa.updateEmployeeName(empNameString, password, newName);
 	System.out.println(message);
-	
+    System.out.println();
+	System.out.println(ConsoleColors.YELLOW_BACKGROUND_BRIGHT +ConsoleColors.RED_BOLD +"Enter [ 0 ] to return Main Menu     |");
+	  System.out.println(ConsoleColors.YELLOW_BACKGROUND_BRIGHT +ConsoleColors.RED_BOLD +"Enter [ 1 ] to Exit                 |");
+	  System.out.println(ConsoleColors.WHITE_BACKGROUND +"|-----------------------------------|");	
+	int input = scanner.nextInt();
+	if(input == 0) {
+		flag = true;
+	}else {
+		flag = false;
+		System.out.println(ConsoleColors.CYAN_BOLD_BRIGHT+ConsoleColors.GREEN_BOLD+"---------Logging Out-----------");
+		System.out.println(ConsoleColors.CYAN_BOLD_BRIGHT+ConsoleColors.GREEN_BOLD+"<-----Application Closed------>");
+		System.out.println("  ");
+	}
 }
 
 public static void leaveApply(Scanner scanner)
@@ -113,7 +151,19 @@ public static void leaveApply(Scanner scanner)
 	int leaveDays = scanner.nextInt();
 	String message = doa.leaveApply(password, leaveDays);
 	System.out.println(message);
-	
+    System.out.println();
+	System.out.println(ConsoleColors.YELLOW_BACKGROUND_BRIGHT +ConsoleColors.RED_BOLD +"Enter [ 0 ] to return Main Menu     |");
+	  System.out.println(ConsoleColors.YELLOW_BACKGROUND_BRIGHT +ConsoleColors.RED_BOLD +"Enter [ 1 ] to Exit                 |");
+	  System.out.println(ConsoleColors.WHITE_BACKGROUND +"|-----------------------------------|");	
+	int input = scanner.nextInt();
+	if(input == 0) {
+		flag = true;
+	}else {
+		flag = false;
+		System.out.println(ConsoleColors.CYAN_BOLD_BRIGHT+ConsoleColors.GREEN_BOLD+"---------Logging Out-----------");
+		System.out.println(ConsoleColors.CYAN_BOLD_BRIGHT+ConsoleColors.GREEN_BOLD+"<-----Application Closed------>");
+		System.out.println("  ");
+	}
 }
 
 public static void leaveById(Scanner scanner)
@@ -134,8 +184,20 @@ public static void leaveById(Scanner scanner)
 	else {
 		System.out.println(ConsoleColors.WHITE_BACKGROUND+"-----------------------------------------------------------------");
 		System.out.println(ConsoleColors.PURPLE_BOLD_BRIGHT +ConsoleColors.BLACK_BOLD+leave);
+	    System.out.println();
 	}
-	
+    System.out.println(ConsoleColors.YELLOW_BACKGROUND_BRIGHT +ConsoleColors.RED_BOLD +"Enter [ 0 ] to return Main Menu     |");
+	  System.out.println(ConsoleColors.YELLOW_BACKGROUND_BRIGHT +ConsoleColors.RED_BOLD +"Enter [ 1 ] to Exit                 |");
+	  System.out.println(ConsoleColors.WHITE_BACKGROUND +"|-----------------------------------|");	
+	int input = scanner.nextInt();
+	if(input == 0) {
+		flag = true;
+	}else {
+		flag = false;
+		System.out.println(ConsoleColors.CYAN_BOLD_BRIGHT+ConsoleColors.GREEN_BOLD+"---------Logging Out-----------");
+		System.out.println(ConsoleColors.CYAN_BOLD_BRIGHT+ConsoleColors.GREEN_BOLD+"<-----Application Closed------>");
+		System.out.println("  ");
+	}
 }
 
 }

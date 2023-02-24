@@ -15,10 +15,13 @@ import CustomColor.ConsoleColors;
 
 public class AdminUseCase {
 	public static final daoInterface doa = new doaInterfaceImpl();
+	public static boolean flag = true;
 public static void main(String[] args) {
 	Scanner scanner = new Scanner(System.in);
 	
 	
+	while(flag)
+	{
 	System.out.println(ConsoleColors.WHITE_BACKGROUND +"-------------------------------------------|");
 	System.out.println(ConsoleColors.GREEN_BOLD+"|| Please Choose Your Action :-            |");
 	System.out.println(ConsoleColors.GREEN_BOLD+"-------------------------------------------|");
@@ -79,7 +82,7 @@ public static void main(String[] args) {
 	
 	
 }
-
+}
 public static void addDept(Scanner scanner)
 {
 	
@@ -88,6 +91,20 @@ public static void addDept(Scanner scanner)
 	
 	String meString = doa.addnewdepartment(dname);
 	System.out.println(ConsoleColors.CYAN_BOLD_BRIGHT+ConsoleColors.BLACK_BOLD +meString);
+	System.out.println("  ");
+	System.out.println(ConsoleColors.YELLOW_BACKGROUND_BRIGHT +ConsoleColors.RED_BOLD +"Enter [ 0 ] to return Main Menu     |");
+	  System.out.println(ConsoleColors.YELLOW_BACKGROUND_BRIGHT +ConsoleColors.RED_BOLD +"Enter [ 1 ] to Exit                   |");
+	  System.out.println(ConsoleColors.WHITE_BACKGROUND +"|-----------------------------------|");	
+	  ;
+	int input = scanner.nextInt();
+	if(input == 0) {
+		flag = true;
+	}else {
+		flag = false;
+		System.out.println(ConsoleColors.CYAN_BOLD_BRIGHT+ConsoleColors.GREEN_BOLD+"---------Logging Out-----------");
+		System.out.println(ConsoleColors.CYAN_BOLD_BRIGHT+ConsoleColors.GREEN_BOLD+"<-----Application Closed------>");
+		System.out.println("  ");
+	}
 }
 
 
@@ -101,6 +118,19 @@ public static void registerEmp(Scanner scanner){
 	int deptId = scanner.nextInt();
 	String meString = doa.registerEmp(ename, password, deptId);
 	System.out.println(ConsoleColors.CYAN_BOLD_BRIGHT+ConsoleColors.BLACK_BOLD +meString);
+	System.out.println("  ");
+	System.out.println(ConsoleColors.YELLOW_BACKGROUND_BRIGHT +ConsoleColors.RED_BOLD +"Enter [ 0 ] to return Main Menu     |");
+	  System.out.println(ConsoleColors.YELLOW_BACKGROUND_BRIGHT +ConsoleColors.RED_BOLD +"Enter [ 1 ] to Exit                   |");
+	  System.out.println(ConsoleColors.WHITE_BACKGROUND +"|-----------------------------------|");	
+	int input = scanner.nextInt();
+	if(input == 0) {
+		flag = true;
+	}else {
+		flag = false;
+		System.out.println(ConsoleColors.CYAN_BOLD_BRIGHT+ConsoleColors.GREEN_BOLD+"---------Logging Out-----------");
+		System.out.println(ConsoleColors.CYAN_BOLD_BRIGHT+ConsoleColors.GREEN_BOLD+"<-----Application Closed------>");
+		System.out.println("  ");
+	}
 }
 public static void getAllDept(Scanner scanner){
 	List<Department> departments = doa.viewDepartment();
@@ -108,10 +138,24 @@ public static void getAllDept(Scanner scanner){
 	{
 		System.out.println(ConsoleColors.CYAN_BOLD_BRIGHT +ConsoleColors.BLACK_BOLD+"No department Exist");
 		System.out.println(ConsoleColors.CYAN_BOLD_BRIGHT +ConsoleColors.BLACK_BOLD+"Choose 1 from menu to create department");
+		System.out.println("  ");
 	}
 	else {
 		System.out.println(ConsoleColors.CYAN_BOLD_BRIGHT +ConsoleColors.BLACK_BOLD+"   :: Department Details are as Followed  ::");
 		departments.forEach(i-> System.out.println(ConsoleColors.CYAN_BOLD_BRIGHT +ConsoleColors.BLACK_BOLD+i));
+		System.out.println("  ");
+	}
+	System.out.println(ConsoleColors.YELLOW_BACKGROUND_BRIGHT +ConsoleColors.RED_BOLD +"Enter [ 0 ] to return Main Menu     |");
+	  System.out.println(ConsoleColors.YELLOW_BACKGROUND_BRIGHT +ConsoleColors.RED_BOLD +"Enter [ 1 ] to Exit                   |");
+	  System.out.println(ConsoleColors.WHITE_BACKGROUND +"|-----------------------------------|");	
+	int input = scanner.nextInt();
+	if(input == 0) {
+		flag = true;
+	}else {
+		flag = false;
+		System.out.println(ConsoleColors.CYAN_BOLD_BRIGHT+ConsoleColors.GREEN_BOLD+"---------Logging Out-----------");
+		System.out.println(ConsoleColors.CYAN_BOLD_BRIGHT+ConsoleColors.GREEN_BOLD+"<-----Application Closed------>");
+		System.out.println("  ");
 	}
 	}
 
@@ -122,7 +166,19 @@ public static void transferEmp(Scanner scanner){
 	int deptId = scanner.nextInt();
 	String msgString = doa.transferDept(empId, deptId);
 	System.out.println(ConsoleColors.CYAN_BOLD_BRIGHT +ConsoleColors.BLACK_BOLD+msgString);
-	
+	System.out.println("  ");
+	System.out.println(ConsoleColors.YELLOW_BACKGROUND_BRIGHT +ConsoleColors.RED_BOLD +"Enter [ 0 ] to return Main Menu     |");
+	  System.out.println(ConsoleColors.YELLOW_BACKGROUND_BRIGHT +ConsoleColors.RED_BOLD +"Enter [ 1 ] to Exit                   |");
+	  System.out.println(ConsoleColors.WHITE_BACKGROUND +"|-----------------------------------|");	
+	int input = scanner.nextInt();
+	if(input == 0) {
+		flag = true;
+	}else {
+		flag = false;
+		System.out.println(ConsoleColors.CYAN_BOLD_BRIGHT+ConsoleColors.GREEN_BOLD+"---------Logging Out-----------");
+		System.out.println(ConsoleColors.CYAN_BOLD_BRIGHT+ConsoleColors.GREEN_BOLD+"<-----Application Closed------>");
+		System.out.println("  ");
+	}
 	}
 
 public static void viewAllLeave(Scanner scanner){
@@ -135,8 +191,20 @@ public static void viewAllLeave(Scanner scanner){
 	else {
 		
 		employeeLeaves.forEach(i-> System.out.println(ConsoleColors.CYAN_BOLD_BRIGHT +ConsoleColors.BLACK_BOLD+i));
+		System.out.println("  ");
 	}
-	
+	System.out.println(ConsoleColors.YELLOW_BACKGROUND_BRIGHT +ConsoleColors.RED_BOLD +"Enter [ 0 ] to return Main Menu     |");
+	  System.out.println(ConsoleColors.YELLOW_BACKGROUND_BRIGHT +ConsoleColors.RED_BOLD +"Enter [ 1 ] to Exit                   |");
+	  System.out.println(ConsoleColors.WHITE_BACKGROUND +"|-----------------------------------|");	
+	int input = scanner.nextInt();
+	if(input == 0) {
+		flag = true;
+	}else {
+		flag = false;
+		System.out.println(ConsoleColors.CYAN_BOLD_BRIGHT+ConsoleColors.GREEN_BOLD+"---------Logging Out-----------");
+		System.out.println(ConsoleColors.CYAN_BOLD_BRIGHT+ConsoleColors.GREEN_BOLD+"<-----Application Closed------>");
+		System.out.println("  ");
+	}
 	}
 public static void leavePermit(Scanner scanner){
 	System.out.println(ConsoleColors.YELLOW_UNDERLINED + "Enter Employee id");
@@ -145,7 +213,19 @@ public static void leavePermit(Scanner scanner){
 	String  status = scanner.next();
 	String messString =doa.leavePermission(empId, status);
 	System.out.println(ConsoleColors.CYAN_BOLD_BRIGHT+ConsoleColors.BLACK_BOLD +messString);
-	
+	System.out.println("  ");
+	System.out.println(ConsoleColors.YELLOW_BACKGROUND_BRIGHT +ConsoleColors.RED_BOLD +"Enter [ 0 ] to return Main Menu     |");
+	  System.out.println(ConsoleColors.YELLOW_BACKGROUND_BRIGHT +ConsoleColors.RED_BOLD +"Enter [ 1 ] to Exit                   |");
+	  System.out.println(ConsoleColors.WHITE_BACKGROUND +"|-----------------------------------|");	
+	int input = scanner.nextInt();
+	if(input == 0) {
+		flag = true;
+	}else {
+		flag = false;
+		System.out.println(ConsoleColors.CYAN_BOLD_BRIGHT+ConsoleColors.GREEN_BOLD+"---------Logging Out-----------");
+		System.out.println(ConsoleColors.CYAN_BOLD_BRIGHT+ConsoleColors.GREEN_BOLD+"<-----Application Closed------>");
+		System.out.println("  ");
+	}
 	}
 
 public static void updateDepartment(Scanner scanner){
@@ -155,7 +235,19 @@ public static void updateDepartment(Scanner scanner){
 	String  deptName = scanner.next();
 	String mssString = doa.updateDepartment(deptId, deptName);
 	System.out.println(ConsoleColors.CYAN_BOLD_BRIGHT+ConsoleColors.BLACK_BOLD +mssString);
-	
+	System.out.println("  ");
+	System.out.println(ConsoleColors.YELLOW_BACKGROUND_BRIGHT +ConsoleColors.RED_BOLD +"Enter [ 0 ] to return Main Menu     |");
+	  System.out.println(ConsoleColors.YELLOW_BACKGROUND_BRIGHT +ConsoleColors.RED_BOLD +"Enter [ 1 ] to Exit                   |");
+	  System.out.println(ConsoleColors.WHITE_BACKGROUND +"|-----------------------------------|");	
+	int input = scanner.nextInt();
+	if(input == 0) {
+		flag = true;
+	}else {
+		flag = false;
+		System.out.println(ConsoleColors.CYAN_BOLD_BRIGHT+ConsoleColors.GREEN_BOLD+"---------Logging Out-----------");
+		System.out.println(ConsoleColors.CYAN_BOLD_BRIGHT+ConsoleColors.GREEN_BOLD+"<-----Application Closed------>");
+		System.out.println("  ");
+	}
 	}
 public static void getAllEmployee(Scanner scanner)
 {
@@ -168,7 +260,21 @@ public static void getAllEmployee(Scanner scanner)
 	else {
 		System.out.println(ConsoleColors.CYAN_BOLD_BRIGHT +ConsoleColors.BLACK_BOLD+"             :: Employee Details are as Followed  ::");
 		employees.forEach(i-> System.out.println(ConsoleColors.CYAN_BOLD_BRIGHT +ConsoleColors.BLACK_BOLD+i));
+		System.out.println("  ");
 	}
-}
+	System.out.println(ConsoleColors.YELLOW_BACKGROUND_BRIGHT +ConsoleColors.RED_BOLD +"Enter [ 0 ] to return Main Menu     |");
+	  System.out.println(ConsoleColors.YELLOW_BACKGROUND_BRIGHT +ConsoleColors.RED_BOLD +"Enter [ 1 ] to Exit                   |");
+	  System.out.println(ConsoleColors.WHITE_BACKGROUND +"|-----------------------------------|");	
+	int input = scanner.nextInt();
+	if(input == 0) {
+		flag = true;
+	}else {
+		flag = false;
+		System.out.println(ConsoleColors.CYAN_BOLD_BRIGHT+ConsoleColors.GREEN_BOLD+"---------Logging Out-----------");
+		System.out.println(ConsoleColors.CYAN_BOLD_BRIGHT+ConsoleColors.GREEN_BOLD+"<-----Application Closed------>");
+		System.out.println("  ");
+	}
 
+
+}
 }
